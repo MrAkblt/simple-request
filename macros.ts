@@ -1,6 +1,6 @@
 import request from "./request";
 
-const helpers = {
+const macros = {
 	get: <T = any>(url: string, options?: any) => request<T>({ url, ...options }),
 
 	post: <T = any>(url: string, data: any, options: any = {}) =>
@@ -13,4 +13,4 @@ const helpers = {
 		request<T>({ url, ...options, method: 'DELETE' }),
 }
 
-export default helpers;
+export default macros;
