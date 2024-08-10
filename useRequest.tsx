@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { request } from 'simple-request';
+import requestHelpers from './macros';
 
 export function useRequest<T = unknown>(url: string, options = {}) {
   const [data, setData] = useState<T>();
@@ -10,7 +10,7 @@ export function useRequest<T = unknown>(url: string, options = {}) {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await request.get(url, options);
+        const response = await requestHelpers.get(url, options);
         setData(response.data);
       } catch (err: any) {
         console.error(err.message);
